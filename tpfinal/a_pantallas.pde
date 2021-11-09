@@ -157,5 +157,10 @@ class Pantallas {
         estado = 17;
       }
     }
+    //imagen para el mouse
+      //Sonido?
+    }else{
+      //imagen para cuando el mouse no esta en el boton
+    }
   }
 }
