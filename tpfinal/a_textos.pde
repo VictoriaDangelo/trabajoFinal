@@ -1,104 +1,164 @@
-class Texto {
-  int cant = 30, x1, y1, posx, ID1;
-  String [] texto = new String [cant];
-  PFont fuente, fuente1;
+class Pantallas {
+  int estado, cant = 20, cant2 = 19;
+  int ID1[]=new int [cant];
+  PImage imagenes [] =new PImage [19];
+  Texto texto;
+  Pantallas() {
+    estado=0;
+    for ( int i = 0; i < cant2; i++ ) {
+      imagenes[i] = loadImage ("imagen" + i + ".png");
+    }    
+    texto = new Texto();
+  }
+  void dibujar() {
 
-  Texto() {
-    texto [0] = " Hola, soy el gato con botas y en esta ocación \n tú decidiras mi destino a traves \n de una serie de deciciones..."; 
-    texto [1] = "CONTINUAR";
-    texto [2] = " Presiona tecla IZQUIERDA o DERECHA ";
-    texto [3] = "INICIAR";
-    texto [4] = "CRÉDITOS";
-    texto [5] = "Salvarle la vida a un hechicero ";
-    texto [6] = "Luchar contra ladrones";
-    texto [7] = "ELIGE UNA AVENTURA ";
-    texto [8] = " Un hechicero se encuentra atrapado\n por una loca duquesa que quiere saber el   \n secreto de sus hechizos...";
-    texto [9] = " Piensas rapidamente una solucion\n para ayudarlo a escapar...";
-    texto [10] = " Te encuentras con un armario \nrepleto de pociones mágicas,\npero hay dos que te llaman la atención...";
-    texto [11] = "¿Qué pocion eliges? "; 
-    texto [12] = " La pocion verde hizo que caigan\n bolsas de maiz sobre a la duquesa\n quedó atrapada y no podrá salir... ";
-    texto [13] = " Rapidamente ayudaste al hechicero\n a escapar, te da las gracias por ayudarlo...";
-    texto [14] = " Esa no fue una buena pocion \n te convertio en burro...";
-    texto [15] = " Ves a un grupo de ladrones \n intentando robar oro...";
-    texto [16] = " Tienes una lucha contra ellos, \n ganás y recuperas el oro...";
-    texto [17] = " Qué mal que tú tambien hayas robado el oro \n eres complice de esos ladrones... ";
-    texto [18] = " Luego de devolver el oro, \n en el camino te encuentras a una joven \n la joven esta perdida...";
-    texto [19] = " ¿Quieres acompañarla a su casa?";
-    texto [20] = " Acompañas a la joven a su casa como todo un\n caballero, ella te lo agradece...";
-    texto [21] = " Eyyy dejar a una joven sola y perdida\n no fue una buena decicion de tu parte...";
-    texto [22] = " Presiona tecla ENTER para volver al inicio  "; 
-    texto [23] = " Realizado por:\n   D'ANGELO, Victoria. \n   Tecnología Multimedial 1 \n   Comision 2 \n   UNLP - FDA  2021 \n\n   Personajes: \n   Gato con Botas\n   Hechicero \n   Duquesa\n   Ladrones \n   Joven Gata";
-    texto [24] = " Las aventuras\n  del Gato con Botas  ";
-    texto [25] = " SI ";
-    texto [26] = " NO ";
-    texto [27] = "¿Devolver el oro a su dueño?";
-    texto [28] = "VERDE";
-    texto [29] = "AZUL";
+    if (estado == 0 ) {
+      image(imagenes[0], 0, 0);
+      // gato con botas titulo imagen
+      texto.btn(3, 480, 220, ID1[0]);// BOTON 0 INICIO
+      texto.btn(4, 680, 220, ID1[1]);// BOTON 1  CREDITOS
+    } else if (estado == 1) {    //------------------------PRESENTACIÓN
+      image(imagenes[1], 0, 0);
+      texto.textosd(0, 35, 290);
+      texto.btn(1, 700, 350, ID1[2]);// BOTON 2 CONTINUAR
+    } else if (estado == 2) {    //------------------------ELEGIR AVENTURA
+      image(imagenes[2], 0, 0);
+      // imagenes de decicion()
+      texto.textoDecision(7, 180, 50);
+      //texto.btn(1, 700, 350, ID1[3]);// BOTON 3 CONTINUAR------------------------SOBRA BOTON
+    } else if (estado == 3) {    //------------------------HECHICERO 1/2
+      image(imagenes[3], 0, 0);
+      texto.textosd(8, 35, 290);
+      texto.btn(1, 700, 350, ID1[4]);// BOTON 4 CONTINUAR
+    } else if (estado == 4) {    //------------------------HECHICERO 2/2
+      image(imagenes[4], 0, 0);
+      texto.textosd(9, 35, 290);
+      texto.btn(1, 700, 350, ID1[5]);// BOTON 5 CONTINUAR
+    } else if (estado ==  5 ) { //------------------------ARMARIO CON POCIONES 
+      image(imagenes[5], 0, 0);
+      texto.textosd(10, 35, 290);
+      texto.btn(1, 700, 350, ID1[6]);// BOTON 6 CONTINUAR
+    } else if (estado == 6) { //------------------------ELEGIR POCION
+      image(imagenes[6], 0, 0);
+      texto.textoDecision(11, 220, 70);
+      // CAMBIAR COLOR DEL TEXTO
+      texto.btn(28, 175, 350, ID1[7]);// BOTON 7 VERDE 
+      texto.btn(29, 560, 350, ID1[8]);// BOTON 8 AZUL
+    } else if (estado == 7) {   //------------------------POCION VERDE 1/2 
+      image(imagenes[8], 0, 0); 
+      texto.textosd(12, 35, 290);
+      texto.btn(1, 700, 350, ID1[9]);// BOTON 9 CONTINUAR
+    } else if (estado == 8) {   //------------------------POCION VERDE 2/2   
+      image(imagenes[9], 0, 0); 
+      texto.textosd(13, 35, 290);
+      texto.btn(1, 700, 350, ID1[10]);// BOTON 10 CONTINUAR // CREDITOS
+    } else if (estado == 9) {   //------------------------POCION AZUL   
+      image(imagenes[7], 0, 0);
+      texto.textosd(14, 35, 290);
+      texto.btn(1, 700, 350, ID1[11]);// BOTON 11 CONTINUAR // CREDITOS
+    } else if (estado == 10) {  //------------------------AVENTURA LADRONES
+      image(imagenes[10], 0, 0);
+      texto.textosd(15, 35, 290);
+      texto.btn(1, 700, 350, ID1[12]);// BOTON 12 CONTINUAR
+    } else if (estado == 11) {  //------------------------LUCHA CON LOS LADRONES 
+      image(imagenes[11], 0, 0);
+      texto.textosd(16, 35, 290);
+      texto.btn(1, 700, 350, ID1[13]);// BOTON 13 CONTINUAR
+    } else  if (estado == 12) { //------------------------QUEDARTE CON EL ORO cambiar a intro a el jueo las monedas se caen 
+      image(imagenes[15], 0, 0);
+      texto.textosd(17, 35, 290);
+      texto.btn(1, 700, 350, ID1[14]);// BOTON 14 CONTINUAR a pantalla 18 MENU MINI JUEGO
+    } else if (estado == 13) {  //------------------------CONOCE GATA
+      image(imagenes[12], 0, 0);
+      texto.textosd(18, 35, 290);
+      texto.btn(1, 700, 350, ID1[15]);// BOTON 15 CONTINUAR
+    } else if (estado == 14) {  //------------------------DECISION DE ACOMAPAÑAR 
+      image(imagenes[13], 0, 0);
+      texto.textoDecision(19, 160, 45);
+      texto.btn(28, 175, 350, ID1[16]);// BOTON 16 SI 
+      texto.btn(29, 560, 350, ID1[17]);// BOTON 17 NO
+    } else if (estado == 15) {  //------------------------SI ACOMPAÑAR 
+      image(imagenes[14], 0, 0);
+      texto.textosd(20, 35, 290);
+      texto.btn(1, 700, 350, ID1[18]);// BOTON 18 CONTINUAR a creditos
+    } else if (estado == 16) {  //------------------------NO ACOMPAÑAR
+      image(imagenes[16], 0, 0);  
+      texto.textosd(21, 35, 290);
+      texto.btn(1, 700, 350, ID1[19]);// BOTON 19 CONTINUAR a creditos
+    } else if (estado == 17) {  //------------------------CREDITOS     
 
-    fuente = loadFont("SitkaDisplay-48.vlw");
-    textFont(fuente);
-    fuente1 = loadFont("VinerHandITC-48.vlw");
-    textFont(fuente1);
+      image(imagenes[16], 0, 0);
+      texto.creditos();
+    } else if (estado == 18 ) { //MINI  JUEGO   MENU    --------- 
+      //image(fondo [1], 0, 0);
+    } else if (estado == 19 ) {//MINI  JUEGO   JUEGO    --------- 
+      //image(fondo [0], 0, 0);
+    } else if (estado == 20 ) {//MINI  JUEGO   PERDER   --------- 
+      //image(fondo [2], 0, 0);
+    } else if (estado == 21 ) {//MINI  JUEGO   GANAR    --------- 
+      //image(fondo [3], 0, 0);
+    }
   }
 
-  void textosd(int nro, int rectx, int recty) { // Dialogo 
-    pushStyle();
-    rectMode(CENTER);
-    fill(222);
-    rect(rectx, recty, 340, 80);
-    textFont(fuente);
-    fill(0);
-    textSize(18);
-    text(texto [nro], rectx-165, recty-15);
-    popStyle();
-  }
-  void textoDecision(int nro, int x, int y) { //Titulos  
-    pushStyle();
-    textFont(fuente1, 48);
-    fill(255);
-    textSize(30);
-    text(texto [nro], x, y);
-    popStyle();
-  }
-  void btn(int nro, int x, int y, int ID) { // Botones  
-    ID1=ID;
-    x1= x;
-    y1= y;
+// este si
+  void botones( int c, int n, int e) {
 
-    pushStyle();
-    rectMode(CENTER);
-    noStroke();
-    fill(224, 145, 41);
-    rect(x, y, 135, 60, 10);
-    fill(255);
-    textFont(fuente);
-    textSize(28);
-    textAlign(CENTER, CENTER);
-    text(texto [nro], x, y);
-    popStyle();
-  }
+    if (texto.detectarbtn() == true) {
+      if (ID1[c] == ID1[n]) {
+        estado = e;
+      }
+    }
+  } 
 
-  void creditos() {
-    pushStyle();
-    textFont( fuente, 48);
-    textSize(28);
-    fill(0);
-    text(texto [23], 410, posx);
-    fill(255);
-    text(texto [23], 412, posx);
-    textSize(19);
-    text(texto [22], 10, 430);
-    popStyle();
-  }
+// este no
+  void botones() {   
 
-  void update() {
-    posx = posx - 4;
-  }
-  boolean detectarbtn() {
-    if (mouseX> x1 - 135/2 && mouseX < x1 + 135/2 && mouseY > y1 - 60/2 && mouseY < y1 + 60/2) {
-      return true;
+    if (texto.detectarbtn() == true) {
+      if (ID1[cant] == ID1[0]) {
+        estado = 1;
+      } else if (ID1[cant] == ID1[1]) {
+        estado = 17;
+      } else if (ID1[cant] == ID1[2]) {
+        estado = 2;
+      } else if (ID1[cant] == ID1[3]) {
+        estado = 0;
+      } else if (ID1[cant] == ID1[4]) {
+        estado = 4 ;
+      } else if (ID1[cant] == ID1[5]) {
+        estado = 5;
+      } else if (ID1[cant] == ID1[6]) {
+        estado = 6;
+      } else if (ID1[cant] == ID1[7]) {
+        estado = 7;
+      } else if (ID1[cant] == ID1[8]) {
+        estado = 9;
+      } else if (ID1[cant] == ID1[9]) {
+        estado = 8;
+      } else if (ID1[cant] == ID1[10]) {
+        estado = 17;
+      } else if (ID1[cant] == ID1[11]) {
+        estado = 17;
+      } else if (ID1[cant] == ID1[12]) {
+        estado = 11;
+      } else if (ID1[cant] == ID1[13]) {
+        estado = 12;
+      } else if (ID1[cant] == ID1[14]) {
+        estado = 18;
+      } else if (ID1[cant] == ID1[15]) {
+        estado = 14;
+      } else if (ID1[cant] == ID1[16]) {
+        estado = 15;
+      } else if (ID1[cant] == ID1[17]) {
+        estado = 16;
+      } else if (ID1[cant] == ID1[18]) {
+        estado = 17;
+      } else if (ID1[cant] == ID1[19]) {
+        estado = 17;
+      }
+      //imagen para el mouse
+      //Sonido?
     } else {
-      return true;
+      //imagen para cuando el mouse no esta en el boton
     }
   }
 }
