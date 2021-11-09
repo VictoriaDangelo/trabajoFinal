@@ -7,13 +7,14 @@ NOMBRE / s ALUMNO / s *
 
 ----------------------------------- "Las aventuras del Gato con Botas"
 * /
-
-
-
+Pantallas pantalla;
 void setup(){
-  size(800, 600);
-  
+  size(800, 450);
+  pantalla = new Pantallas();
 }
 void draw(){
-
+  pantalla.dibujar();
+}
+void mouseClicked(){
+  pantalla.botones();
 }
