@@ -1,27 +1,24 @@
 class Pantallas {
-  int estado, cant = 19;
+  int estado, cant = 20, cant2 = 19;
   int ID1[]=new int [cant];
-  PImage imagenes [] =new PImage [cant];
+  PImage imagenes [] =new PImage [19];
   Texto texto;
-
   Pantallas() {
     estado=0;
-    for ( int i = 0; i < cant; i++ ) {
+    for ( int i = 0; i < cant2; i++ ) {
       imagenes[i] = loadImage ("imagen" + i + ".png");
-    }
+    }    
+    texto = new Texto();
   }
-
-  void inicio() {
-    if (estado == 0) {
+  void dibujar() {
+    
+    if (estado == 0 ){
       image(imagenes[0], 0, 0);
       // gato con botas titulo imagen
-      texto.btn(3, 445, 220, ID1[0]);// BOTON 0 INICIO
-      texto.btn(4, 620, 220, ID1[1]);// BOTON 1  CREDITOS
-    }
-  }
-  void pantallas() {
-
-    if (estado == 1) {           //------------------------PRESENTACIÓN
+      texto.btn(3, 500, 220, ID1[0]);// BOTON 0 INICIO
+      texto.btn(4, 680, 220, ID1[1]);// BOTON 1  CREDITOS
+    
+    } else if (estado == 1) {    //------------------------PRESENTACIÓN
       image(imagenes[1], 0, 0);
       texto.textosd(0, 35, 290);
       texto.btn(1, 700, 350, ID1[2]);// BOTON 2 CONTINUAR
@@ -156,8 +153,7 @@ class Pantallas {
       }else if (ID1[cant] == ID1[19]){
         estado = 17;
       }
-    }
-    //imagen para el mouse
+      //imagen para el mouse
       //Sonido?
     }else{
       //imagen para cuando el mouse no esta en el boton
