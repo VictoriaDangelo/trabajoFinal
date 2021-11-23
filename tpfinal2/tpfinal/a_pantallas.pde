@@ -20,9 +20,59 @@ class Pantallas {
     }else if (estado == "presentacion"){
       image(imagenes[1], 0, 0);
       texto.textosd(0, 35, 290);
-    }
+      texto.btn( 29,610, 180, 3); Boton 3 = SIGUIENTE --> aventuras
+    }else if(estado == "aventuras"){
+      image(imagenes[2], 0, 0);
+      //clic sobre las imagenes
+      texto.textoDecision(16, 180, 50); 
+    }else if(estado == "hechicero1"){  //hechicero atrapado 1/2
+     image(imagenes[3], 0, 0);
+      texto.btn(29, 610, 180,2);//Boton 29  = SIGUIENTE -->    
+    }else if(estado == "hechicero2"){  //hechicero atrapado 2/2
+    
+    
+    }else if(estado == "armario"){  
+    
+    
+    }else if(estado == "pociones"){  
+    
+    
+    }else if(estado == "pocionverde"){  //1/2
+    
+    
+    }else if(estado == "pocionverde"){ //2/2
+    
+    
+    }else if(estado == "pocionazul"){
+    
+   
+    }else if(estado == "ladrones"){
+    
+    
+    }else if(estado == "lucha"){
+    
+    
+    }else if(estado == "quedarseoro"){
+    
+    
+    }else if(estado == "devolveroro"){
+    
+    
+    }else if(estado == "acompañarjoven"){
+    
+    
+    }else if(estado == "acompañar"){
+    
+    
+    }else if(estado == "noacompañar"){
+  
+  
+    }else if(estado == "creditos"){
+  
+  
+  
+  
   }
-
   void click() {
     
   }
