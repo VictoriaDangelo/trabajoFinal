@@ -29,7 +29,7 @@ class Pantallas {
      image(imagenes[3], 0, 0);
       texto.btn(29, 610, 180,2);//Boton 29  = SIGUIENTE -->    
     }else if(estado == "hechicero2"){  //hechicero atrapado 2/2
-    
+      
     
     }else if(estado == "armario"){  
     
