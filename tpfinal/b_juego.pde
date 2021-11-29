@@ -24,6 +24,7 @@ class Juego {
       if (l[i].obtenerX() > bolsa.oposX() - bolsa.tamo()/2 && l[i].obtenerX()< bolsa.oposX() + bolsa.tamo()/2 && l[i].obtenerY()> bolsa.oy() - bolsa.tamo()/2 && l[i].obtenerY()< bolsa.oy() + bolsa.tamo()/2 ) {// bolsa 
         puntos = puntos + 10; 
         l[i].reciclar();
+        colision.play();
       }
     }
   }
