@@ -40,7 +40,7 @@ class Juego {
     for ( int i = 0; i < p.length; i++ ) { 
       if (p[i].obtenerX() > bolsa.oposX() - bolsa.tamxo()/2 && p[i].obtenerX() < bolsa.oposX() + bolsa.tamxo()/2 && p[i].obtenerY() > bolsa.oy() - bolsa.tamyo()/2 && p[i].obtenerY() < bolsa.oy() + bolsa.tamyo()/2) {   
         p[i].reiniciar(); 
-        tam =  tam - 10;
+        tam--;
         bolsa.update(tam);
         //-----------
         vidas =  vidas - 1;
